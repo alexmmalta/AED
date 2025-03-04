@@ -31,9 +31,7 @@ int main()
     for (int i = 0; i < N; i++)
     {
         if (i == indice)
-        {
             continue;
-        }
         if (vetor[i] > maior2)
         {
             maior2 = vetor[i];

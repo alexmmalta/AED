@@ -1,14 +1,13 @@
 #include <stdio.h>
+#include <string.h>
 
-void imprimeVetor(int vetor[], int tamanho)
+void imprimeVetor(char vetor[][100], int tamanho)
 {
     for (int i = 0; i < tamanho; i++)
     {
         if (i > 0)
-        {
             printf(" ");
-        }
-        printf("%d", vetor[i]);
+        printf("%s", vetor[i]);
     }
     printf("\n");
 }
@@ -18,10 +17,10 @@ int main()
     int N;
     scanf("%d", &N);
 
-    int vetor[N];
+    char vetor[N][100];
     for (int i = 0; i < N; i++)
     {
-        scanf("%d", &vetor[i]);
+        scanf("%s", vetor[i]);
     }
 
     imprimeVetor(vetor, N);
@@ -31,16 +30,19 @@ int main()
     {
         for (int j = 0; j < N - i - 1; j++)
         {
-            if (vetor[j] > vetor[j + 1])
+            if (strcmp(vetor[j], vetor[j + 1]) > 0)
             {
-                int temp = vetor[j];
-                vetor[j] = vetor[j + 1];
-                vetor[j + 1] = temp;
+                char temp[100];
+                strcpy(temp, vetor[j]);
+                strcpy(vetor[j], vetor[j + 1]);
+                strcpy(vetor[j + 1], temp);
                 trocas++;
                 imprimeVetor(vetor, N);
             }
         }
     }
+
+    imprimeVetor(vetor, N);
 
     printf("Trocas: %d\n", trocas);
 

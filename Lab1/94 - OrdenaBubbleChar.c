@@ -5,9 +5,7 @@ void imprimeVetor(char vetor[], int tamanho)
     for (int i = 0; i < tamanho; i++)
     {
         if (i > 0)
-        {
             printf(" ");
-        }
         printf("%c", vetor[i]);
     }
     printf("\n");
@@ -20,9 +18,7 @@ int main()
 
     char vetor[N];
     for (int i = 0; i < N; i++)
-    {
         scanf(" %c", &vetor[i]);
-    }
 
     imprimeVetor(vetor, N);
 
@@ -41,6 +37,8 @@ int main()
             }
         }
     }
+
+    imprimeVetor(vetor, N);
 
     printf("Trocas: %d\n", trocas);
 

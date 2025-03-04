@@ -5,9 +5,7 @@ void imprimeVetor(int vetor[], int inicio, int fim)
     for (int i = inicio; i <= fim; i++)
     {
         if (i > inicio)
-        {
             printf(" ");
-        }
         printf("%d", vetor[i]);
     }
     printf("\n");
@@ -42,9 +40,7 @@ void buscaBinaria(int vetor[], int N, int valor)
     }
 
     if (!encontrado)
-    {
         printf("VALOR %d NAO LOCALIZADO NA COLECAO\n", valor);
-    }
 }
 
 int main()
