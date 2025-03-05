@@ -6,38 +6,26 @@ int main()
     char R[20001];
     int N, M;
 
-    scanf("%20000s", S);
-
+    scanf("%s", S);
     scanf("%d %d", &N, &M);
 
-    char *esquerda = S;      
-    char *direita = S + N;   
-
     int iE = 0;
-    int iD = 0;
+    int fE = N - 1;
+    int iD = N;
+    int fD = N + M - 1;
     int iR = 0;
 
-    while (iE < N && iD < M)
-    {
-        if (esquerda[iE] <= direita[iD])
-        {
-            R[iR++] = esquerda[iE++];
-        }
+    while (iE <= fE && iD <= fD)
+        if (S[iE] <= S[iD])
+            R[iR++] = S[iE++];
         else
-        {
-            R[iR++] = direita[iD++];
-        }
-    }
+            R[iR++] = S[iD++];
 
-    while (iE < N)
-    {
-        R[iR++] = esquerda[iE++];
-    }
+    while (iE <= fE)
+        R[iR++] = S[iE++];
 
-    while (iD < M)
-    {
-        R[iR++] = direita[iD++];
-    }
+    while (iD <= fD)
+        R[iR++] = S[iD++];
 
     R[iR] = '\0';
     printf("%s\n", R);
