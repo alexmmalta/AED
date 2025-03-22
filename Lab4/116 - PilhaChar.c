@@ -41,7 +41,7 @@ void desempilha(struct PilhaString *pilha)
 char topo(struct PilhaString *pilha)
 {
     if (!pilhaVazia(pilha))
-        return pilha->itens[--pilha->quantidade];
+        return pilha->itens[pilha->quantidade -1];
     return '\0';
 }
 
