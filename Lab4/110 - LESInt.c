@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct LESstring
+struct LESint
 {
     int *itens;
     int quantidade;
     int tamanho;
 };
 
-struct LESstring criarLista(struct LESstring *les, int tamanho)
+struct LESint criarLista(struct LESint *les, int tamanho)
 {
     les->itens = (int *)malloc(tamanho * sizeof(int));
     les->quantidade = 0;
@@ -16,17 +16,17 @@ struct LESstring criarLista(struct LESstring *les, int tamanho)
     return *les;
 }
 
-int listaCheia(struct LESstring *les)
+int listaCheia(struct LESint *les)
 {
     return les->quantidade == les->tamanho;
 }
 
-int listaVazia(struct LESstring *les)
+int listaVazia(struct LESint *les)
 {
     return les->quantidade == 0;
 }
 
-int buscar(struct LESstring *les, int valor)
+int buscar(struct LESint *les, int valor)
 {
     for (int i = 0; i < les->quantidade; i++)
         if (les->itens[i] == valor)
@@ -34,7 +34,7 @@ int buscar(struct LESstring *les, int valor)
     return -1;
 }
 
-void inserir(struct LESstring *les, int valor)
+void inserir(struct LESint *les, int valor)
 {
     if (!listaCheia(les))
     {
@@ -53,7 +53,7 @@ void inserir(struct LESstring *les, int valor)
     }
 }
 
-void remover(struct LESstring *les, int valor)
+void remover(struct LESint *les, int valor)
 {
     if (!listaVazia(les))
     {
@@ -68,7 +68,7 @@ void remover(struct LESstring *les, int valor)
     }
 }
 
-void imprimir(struct LESstring *les)
+void imprimir(struct LESint *les)
 {
     for (int i = 0; i < les->quantidade; i++)
         printf("%d%s", les->itens[i], i < les->quantidade - 1 ? " " : "\n");
@@ -78,7 +78,7 @@ int main()
 {
     int n;
     scanf("%d", &n);
-    struct LESstring les;
+    struct LESint les;
     criarLista(&les, n);
 
     char op;
